@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/raj-pro/loanhub-gitops
+    repoURL: https://github.com/vilasvarghese/loanhub-gitops
     targetRevision: main
     path: overlays/prod
   destination:
