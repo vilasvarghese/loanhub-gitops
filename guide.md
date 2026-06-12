@@ -273,6 +273,9 @@ terraform output eso_role_arn        # → annotate ESO service account
 terraform output rds_db_secret_arn   # → used in ExternalSecret
 ```
 
+change [backend configmap.yaml](https://github.com/vilasvarghese/loanhub-gitops/blob/main/base/backend/configmap.yaml)
+        edit the url from terraform output
+
 ### 4.6 Connect kubectl to EKS
 
 ```sh
