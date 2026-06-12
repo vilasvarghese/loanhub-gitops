@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: 612069931326.dkr.ecr.ap-south-1.amazonaws.com/loanhub-backend:latest
+          image: 396982710430.dkr.ecr.us-east-1.amazonaws.com/loanhub-backend:latest
           ports:
             - containerPort: 8080
           envFrom:
