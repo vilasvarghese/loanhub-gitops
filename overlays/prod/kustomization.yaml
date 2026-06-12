@@ -13,3 +13,6 @@ images:
 - name: backend
   newName: 396982710430.dkr.ecr.us-east-2.amazonaws.com/loanhub-backend
   newTag: 70e6049
+- name: frontend
+  newName: 396982710430.dkr.ecr.us-east-2.amazonaws.com/loanhub-frontend
+  newTag: 7fec0b2
