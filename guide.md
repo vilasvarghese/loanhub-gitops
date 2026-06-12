@@ -273,8 +273,45 @@ terraform output eso_role_arn        # → annotate ESO service account
 terraform output rds_db_secret_arn   # → used in ExternalSecret
 ```
 
+Define github repo secrets for frontend for 
+- AWS_ROLE_ARN= Terraform output of github_ci_role_arn
+- ECR_FRONTEND_URI = Terraform out put of ECR_FRONTEND_URI
+
+Define github repo secrets for backend for 
+- AWS_ROLE_ARN= Terraform output of github_ci_role_arn
+- ECR_BACKEND_URI = Terraform out put of ECR_BACKEND_URI
+
 change [backend configmap.yaml](https://github.com/vilasvarghese/loanhub-gitops/blob/main/base/backend/configmap.yaml)
         edit the url from terraform output
+
+
+Create the Token
+Step 1: Generate a GitHub Personal Access Token (PAT)
+1. Go to https://github.com/settings/tokens?type=beta (Fine-grained tokens)
+2. Click "Generate new token"
+3. Configure it:
+Setting	Value
+Token name	loanhub-gitops-token
+Expiration	90 days (or custom)
+Resource owner	vilasvarghese
+Repository access	Only select repositories → select loanhub-gitops
+	4	Under Permissions → Repository permissions, set:
+Permission	Access
+Contents	Read and write
+Metadata	Read-only (auto-selected)
+	5	Click "Generate token"
+1. Copy the token immediately (you won't see it again)
+Step 2: Add it as a GitHub Secret
+Do this in both loanhub-frontend and loanhub-backend repos:
+1. Go to your repo → Settings → Secrets and variables → Actions
+2. Click "New repository secret"
+3. Set:
+    * Name: GITOPS_TOKEN
+    * Value: paste the token from Step 1
+4. Click "Add secret"
+Step 3: Re-run the workflow
+
+        
 
 ### 4.6 Connect kubectl to EKS
 
