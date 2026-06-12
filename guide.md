@@ -264,7 +264,7 @@ resource "aws_eks_addon" "ebs_csi" {
 ### 4.5 Capture outputs after apply
 
 ```sh
-terraform output AWS_ROLE_ARN        # → set as GitHub secret
+terraform output AWS_ROLE_ARN=github_ci_role_arn        # → set as GitHub secret
 terraform output ECR_BACKEND_URI     # → set as GitHub secret
 terraform output ECR_FRONTEND_URI    # → set as GitHub secret
 terraform output eks_cluster_name    # → used in kubeconfig
