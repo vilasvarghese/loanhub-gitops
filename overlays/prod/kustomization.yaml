@@ -2,10 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../base/backend
-  - ../../base/frontend
-  - ../../base/ingress
+- ../../base/backend
+- ../../base/frontend
+- ../../base/ingress
 
 patches:
-  - path: backend/replicas.yaml
-  - path: frontend/replicas.yaml
+- path: backend/replicas.yaml
+- path: frontend/replicas.yaml
+images:
+- name: backend
+  newName: 396982710430.dkr.ecr.us-east-2.amazonaws.com/loanhub-backend
+  newTag: 70e6049
